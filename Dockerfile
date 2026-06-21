@@ -10,5 +10,8 @@ RUN python -m pip install --upgrade pip && \
     python -m pip install -r /app/requirements.txt
 
 COPY handler.py /app/handler.py
+COPY api.py /app/api.py
 
+# Default is serverless.
+# For Pod, override the start command in RunPod UI.
 CMD ["python", "-u", "/app/handler.py"]
