@@ -20,13 +20,14 @@ from paddleocr import PaddleOCRVL
 
 RUNPOD_VOLUME = Path("/runpod-volume")
 WORKSPACE = Path("/workspace")
+HOME_CACHE = Path.home() / "paddleocr-vl-cache"
 
 if RUNPOD_VOLUME.exists() and os.access(str(RUNPOD_VOLUME), os.W_OK):
     CACHE_ROOT = RUNPOD_VOLUME / "paddleocr-vl-cache"
 elif WORKSPACE.exists() and os.access(str(WORKSPACE), os.W_OK):
     CACHE_ROOT = WORKSPACE / "paddleocr-vl-cache"
 else:
-    CACHE_ROOT = Path("/tmp/paddleocr-vl-cache")
+    CACHE_ROOT = HOME_CACHE
 
 CACHE_ROOT.mkdir(parents=True, exist_ok=True)
 
