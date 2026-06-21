@@ -1,6 +1,3 @@
 runpod>=1.6.2
 requests
-pillow
-pymupdf
 filelock
-safetensors
